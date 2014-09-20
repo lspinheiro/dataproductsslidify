@@ -1,0 +1,61 @@
+---
+title       : Simple retirement calculator
+subtitle    : 
+author      :  Leonardo
+job         : Data Science apprendice
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Presenting the Calculator
+
+1. We aim to present a simple retirement calculation
+2. Provided the amount you save yearly, how many years you will work and a expected return rate it calculates the resulting ammount.
+
+--- .class #id 
+
+## Motivation
+
+1. Provided you work may not give you a retirement plan you may need to do some regular saving to ensure you will not starve when you're older.
+
+2. This app provide a simple calculation for the ammount you may need to save.
+
+
+
+---
+
+## Financial Math
+
+1. The calculations use some basic financial math, the concept of compound interest.
+
+2. It calculates the compound interest considering a constant deposit.
+
+
+---
+
+## The Code
+
+The code is as follows:
+
+```{r financial math}
+
+retirement <- function(age, savings, endage, interest){
+  ages_to_work <- endage - age
+  total_money <- 0
+  for(i in 1:ages_to_work){
+    total_money <- total_money + savings
+    total_money <- total_money*( 1.00 + interest/100)
+  }
+  return(total_money)
+}
+```
+
+---
+
+## Conclusion
+
+I hope you find this useful. Enjoy!
